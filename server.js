@@ -3,12 +3,12 @@ const db =require('./db.js');
 const app = express()
 const bodyParser = require('body-parser');
 const User = require('./model/userschema.js');
-
+const dotenv = require('dotenv');
 app.use(bodyParser.json());
 // app.use(bodyParser.urlencoded({ extended: true }));
-app.get('/', (req, res) => {
-  res.send('Hello ')
-})
+// app.get('/', (req, res) => {
+//   res.send('Hello ')
+// })
 
 app.get('/signup', (req, res) => {
    const userdat ={
@@ -21,7 +21,7 @@ app.get('/signup', (req, res) => {
 // POST route to add a person
 const personRouter = require('./router/personroute.js');
 app.use('/person', personRouter);
-
-app.listen(3000, () => {
-  console.log('Server is running on http://localhost:3000')
+const PORT = process.env.port
+app.listen(PORT, () => {
+  console.log('Server is running on port', PORT);
 })

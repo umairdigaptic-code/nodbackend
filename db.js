@@ -1,7 +1,12 @@
 const  mongoose =require("mongoose")
- const mongodburl='mongodb://localhost:27017/hotel'
+const dotenv = require('dotenv').config();
 
- // Set up MongoDB connection
+
+//  const mongodburl='mongodb://localhost:27017/hotel'
+// const mongodburl='mongodb+srv://umairdigaptic_db_user:umair123@cluster0.rfqj5wp.mongodb.net/'
+const mongodburl=process.env.db_url;
+ 
+// Set up MongoDB connection
 mongoose.connect(mongodburl);
 
 // Get the default connection
